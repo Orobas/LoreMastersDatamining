@@ -29,7 +29,18 @@ class StreamListener(tweepy.StreamListener):
 		print(status.text)
 		
 	def on_data(self, data):
-		print(data)
+		result = json.loads(data)
+		id = result["id_str"]
+		created = result["created_at"]
+		text = result["text"]
+		if "altcoin" in text.lower(): 
+		if "bitcoin"
+		if "coindesk"
+		if "cryptocurrency"
+		if "gold"
+		if "appl"
+		if "goog"
+		if "yhoo"
 
 		
 twitterStreamListener = StreamListener()
