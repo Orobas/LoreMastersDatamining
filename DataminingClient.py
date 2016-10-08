@@ -10,18 +10,12 @@ consumer_secret = 'RZKEPj4XMUY0KKwlw6ARz45RYZ837pB3ucojuFh7kEsHegAuOV'
 access_token = '762001840422649856-OYlygYN8Q5CslE1uV6dXW0YVyEoHkaP'
 access_token_secret = '5RXedN8QkTIrvHeTpZtTDNtvPWt9qrB4EmS1wDnTNx6ko'
 
-altcoin=db.altcoin
-bitcoin=db.bitcoin
-coindesk=db.coindesk
-cryptocurrency=db.cryptocurrency
-gold=db.gold
-appl=db.appl
-goog=db.goog
-yhoo=db.yhoo
-
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
+
+def writeToDb(dbnum, result):
+	db.altcoin.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
 
 class StreamListener(tweepy.StreamListener):
 
@@ -33,14 +27,14 @@ class StreamListener(tweepy.StreamListener):
 		id = result["id_str"]
 		created = result["created_at"]
 		text = result["text"]
-		if "altcoin" in text.lower(): 
-		if "bitcoin"
-		if "coindesk"
-		if "cryptocurrency"
-		if "gold"
-		if "appl"
-		if "goog"
-		if "yhoo"
+		if "altcoin" in text.lower(): db.altcoin.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
+		if "bitcoin" in text.lower(): db.bitcoin.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
+		if "coindesk" in text.lower(): db.coindesk.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
+		if "cryptocurrency" in text.lower(): db.cryptocurrency.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
+		if "gold" in text.lower(): db.gold.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
+		if "appl" in text.lower(): db.appl.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
+		if "goog" in text.lower(): db.goog.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
+		if "yhoo" in text.lower(): db.yhoo.insert_one({"Date":result["created_at"],"Id":result["id_str"],"Text":result["text"]})
 
 		
 twitterStreamListener = StreamListener()
