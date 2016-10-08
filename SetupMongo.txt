@@ -1,0 +1,22 @@
+Install Python, install pymongo, tweepy, json
+
+Install mongodb for windows
+Open a cmd windows to where mongodb is installed and go inside the bin folder, or add the bin folder to your path.
+type: mongod --dbpath <path> 
+Change path to where you want the db to save it's data.
+If the server didn't open, type mongod and make sure the server starts
+Open another cmd window to the same place (bin) and type mongo
+type: use TwitterData
+type: db.createCollection("altcoin")
+type: db.createCollection("bitcoin")
+type: db.createCollection("coindesk")
+type: db.createCollection("cryptocurrency")
+type: db.createCollection("gold")
+type: db.createCollection("appl")
+type: db.createCollection("goog")
+type: db.createCollection("yhoo")
+
+This should create the database.
+To view data in the database type: db.<collection>.find().pretty() where collection is the collection you want to view.
+
+
