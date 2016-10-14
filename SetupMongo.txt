@@ -19,4 +19,5 @@ type: db.createCollection("yhoo")
 This should create the database.
 To view data in the database type: db.<collection>.find().pretty() where collection is the collection you want to view.
 
-
+db.collection.createIndex({"created_at":1})
+db.collection.createIndex({"_id":1})
